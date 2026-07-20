@@ -1,0 +1,828 @@
+/* =============================================
+   STYLE CSS BIOSKOP ONLINE - VERSI PREMIUM
+   ============================================= */
+
+/* ===== IMPORT FONT ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap');
+
+/* ===== VARIABLES ===== */
+:root {
+    --primary: #6C3CE1;
+    --primary-dark: #5A2DD1;
+    --secondary: #E9407F;
+    --accent: #F7971E;
+    --success: #00B894;
+    --dark: #0f0f1a;
+    --dark-light: #1a1a2e;
+    --glass: rgba(255, 255, 255, 0.05);
+    --shadow: 0 15px 40px rgba(108, 60, 225, 0.25);
+    --shadow-hover: 0 25px 50px rgba(108, 60, 225, 0.35);
+    --border-radius: 20px;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    padding-top: 70px;
+    background: #0f0f1a;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* ===== ANIMASI ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #1a1a2e;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--secondary), var(--primary));
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar-custom {
+    background: rgba(26, 26, 46, 0.95) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    padding: 12px 0;
+    transition: var(--transition);
+}
+
+.navbar-custom .navbar-brand {
+    font-weight: 900;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+.navbar-custom .navbar-brand i {
+    -webkit-text-fill-color: initial;
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-custom .nav-link {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 500;
+    padding: 8px 20px !important;
+    border-radius: 12px;
+    transition: var(--transition);
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.navbar-custom .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6C3CE1, #E9407F);
+    transition: var(--transition);
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+.navbar-custom .nav-link:hover::after,
+.navbar-custom .nav-link.active::after {
+    width: 60%;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+.navbar-custom .nav-link.active {
+    color: #ffffff !important;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-section {
+    background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 30%, #16213e 60%, #0f0f1a 100%);
+    padding: 100px 0 80px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(108, 60, 225, 0.15), transparent 70%);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(233, 64, 127, 0.1), transparent 70%);
+    border-radius: 50%;
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 4.2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #6C3CE1, #E9407F, #F7971E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 300% 300%;
+    animation: shimmer 5s ease-in-out infinite;
+    letter-spacing: -2px;
+}
+
+.hero-section h1 i {
+    -webkit-text-fill-color: initial;
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-section .lead {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.hero-section .sub-text {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 25px;
+    background: rgba(108, 60, 225, 0.2);
+    border: 1px solid rgba(108, 60, 225, 0.3);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: #6C3CE1;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   SEARCH BOX
+   ============================================ */
+.search-box {
+    max-width: 650px;
+    margin: -35px auto 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 10;
+}
+
+.search-box .input-group {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.search-box .form-control {
+    background: transparent;
+    border: none;
+    padding: 18px 25px;
+    font-size: 1rem;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-box .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.search-box .form-control:focus {
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.search-box .btn-search {
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-box .btn-search:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(108, 60, 225, 0.4);
+}
+
+/* ============================================
+   SECTION TITLE
+   ============================================ */
+.section-title {
+    font-weight: 800;
+    font-size: 2.2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #6C3CE1, #E9407F);
+    border-radius: 10px;
+}
+
+.section-title i {
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   FILM CARD
+   ============================================ */
+.film-grid {
+    padding: 20px 0 40px;
+}
+
+.film-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    height: 100%;
+    position: relative;
+}
+
+.film-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius);
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(108, 60, 225, 0.3), rgba(233, 64, 127, 0.3));
+    -webkit-mask: linear-gradient(#000000 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.film-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(108, 60, 225, 0.2);
+}
+
+.film-card .card-img-top {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.film-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.film-card .card-body {
+    padding: 25px 20px 20px;
+    position: relative;
+}
+
+.film-card .card-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    min-height: 50px;
+    color: #f2eaea;
+    margin-bottom: 10px;
+}
+
+.film-card .badge {
+    padding: 6px 14px;
+    font-weight: 500;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+}
+
+.film-card .badge-primary {
+    background: linear-gradient(135deg, #6C3CE1, #8B5CF6);
+}
+
+.film-card .badge-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.film-card .price {
+    font-size: 1.3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00B894, #00D2D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
+}
+
+.film-card .rating {
+    color: #F7971E;
+    font-weight: 600;
+}
+
+.film-card .btn-detail {
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.film-card .btn-detail::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #E9407F, #6C3CE1);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.film-card .btn-detail:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(108, 60, 225, 0.4);
+}
+
+.film-card .btn-detail:hover::before {
+    opacity: 1;
+}
+
+.film-card .btn-detail i,
+.film-card .btn-detail span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   DETAIL PAGE
+   ============================================ */
+.detail-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.detail-poster {
+    width: 100%;
+    max-height: 550px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transition: var(--transition);
+}
+
+.detail-poster:hover {
+    transform: scale(1.02);
+}
+
+.detail-title {
+    font-weight: 900;
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #fff, #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.detail-info {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-info:last-child {
+    border-bottom: none;
+}
+
+.detail-info .label {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    min-width: 140px;
+    display: inline-block;
+}
+
+.detail-info .value {
+    color: #fff;
+}
+
+.detail-description {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px 25px;
+    border-radius: 15px;
+    border-left: 4px solid #6C3CE1;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   RESERVASI FORM
+   ============================================ */
+.reservation-form {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.reservation-form .form-title {
+    font-weight: 800;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(108, 60, 225, 0.3);
+}
+
+.reservation-form .form-title i {
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.reservation-form .film-info {
+    background: rgba(108, 60, 225, 0.1);
+    padding: 20px 25px;
+    border-radius: 15px;
+    border-left: 4px solid #6C3CE1;
+    margin-bottom: 30px;
+}
+
+.reservation-form .film-info img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.reservation-form .form-label {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+.reservation-form .form-control,
+.reservation-form .form-select {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 14px 18px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transition);
+}
+
+.reservation-form .form-control:focus,
+.reservation-form .form-select:focus {
+    border-color: #6C3CE1;
+    box-shadow: 0 0 0 4px rgba(108, 60, 225, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.reservation-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.reservation-form .form-select option {
+    background: #1a1a2e;
+    color: #ffffff;
+}
+
+.reservation-form .btn-submit {
+    background: linear-gradient(135deg, #00B894, #00D2D3);
+    color: white;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+}
+
+.reservation-form .btn-submit:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 184, 148, 0.4);
+}
+
+/* ============================================
+   KONFIRMASI
+   ============================================ */
+.confirmation-box {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 50px;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.confirmation-box .success-icon {
+    font-size: 100px;
+    background: linear-gradient(135deg, #00B894, #00D2D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.confirmation-box .ticket-code {
+    background: rgba(108, 60, 225, 0.15);
+    padding: 20px;
+    border-radius: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    color: #8B5CF6;
+    border: 1px solid rgba(108, 60, 225, 0.2);
+    margin: 25px 0;
+}
+
+.ticket-details {
+    text-align: left;
+    margin: 30px 0;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.ticket-details .row-detail {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket-details .row-detail:last-child {
+    border-bottom: none;
+}
+
+.ticket-details .label {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.ticket-details .value {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.ticket-details .value.total {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #00B894, #00D2D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn-primary-custom {
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    color: white;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(108, 60, 225, 0.4);
+    color: white;
+}
+
+.btn-success-custom {
+    background: linear-gradient(135deg, #00B894, #00D2D3);
+    color: white;
+    padding: 12px 35px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn-success-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 184, 148, 0.4);
+    color: white;
+}
+
+/* ============================================
+   BADGE COUNTER
+   ============================================ */
+.badge-counter {
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer-custom {
+    background: rgba(26, 26, 46, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px 0 30px;
+    margin-top: 60px;
+}
+
+.footer-custom .footer-brand {
+    font-weight: 900;
+    font-size: 1.4rem;
+    background: linear-gradient(135deg, #6C3CE1, #E9407F);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 992px) {
+    .hero-section h1 {
+        font-size: 2.8rem;
+    }
+    .detail-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
+    
+    .hero-section {
+        padding: 60px 0 50px;
+    }
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+    
+    .film-card .card-img-top {
+        height: 240px;
+    }
+    
+    .detail-container {
+        padding: 20px;
+    }
+    .detail-poster {
+        max-height: 350px;
+    }
+    .detail-title {
+        font-size: 1.6rem;
+    }
+    
+    .reservation-form {
+        padding: 25px;
+    }
+    .confirmation-box {
+        padding: 25px;
+    }
+    .confirmation-box .ticket-code {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+    .film-card .card-img-top {
+        height: 200px;
+    }
+    .search-box {
+        margin: -25px 15px 30px;
+    }
+    .search-box .btn-search {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ============================================
+   PRINT
+   ============================================ */
+@media print {
+    .navbar-custom,
+    .footer-custom,
+    .search-box,
+    .no-print {
+        display: none !important;
+    }
+    body {
+        padding-top: 0 !important;
+        background: white !important;
+        color: #000 !important;
+    }
+    .confirmation-box {
+        background: white !important;
+        border: 2px solid #ddd !important;
+        box-shadow: none !important;
+    }
+    .ticket-details .label {
+        color: #666 !important;
+    }
+    .ticket-details .value {
+        color: #000 !important;
+    }
+}
